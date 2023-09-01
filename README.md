@@ -7,6 +7,7 @@ npm install @nora-soderlund/google-maps-solar-api
 ```
 
 See my developer blog article for an example of using the Solar API with the Google Maps JS SDK:
+
 https://nora-soderlund.se/articles/integrating-the-new-solar-api-in-google-maps
 
 ## References
