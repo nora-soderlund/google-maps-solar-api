@@ -1,12 +1,13 @@
 import { GOOGLE_MAPS_SOLAR_API_BASE } from "../constants";
 import { BuildingInsights } from "../types/BuildingInsights";
 import { ImageryQuality } from "../types/ImageryQuality";
+import { LatLng } from "../types/LatLng";
 
 export type FindClosestBuildingInsightsParameters = {
   /**
    * The longitude and latitude from which the API looks for the nearest known building.
    */
-  location: google.maps.LatLngLiteral;
+  location: LatLng;
 
   /**
    * The minimum quality level allowed in the results.
@@ -21,8 +22,8 @@ export async function findClosestBuildingInsights(apiKey: string, query: FindClo
 
   url.searchParams.set("key", apiKey);
 
-  url.searchParams.set("location.latitude", query.location.lat.toString());
-  url.searchParams.set("location.longitude", query.location.lng.toString());
+  url.searchParams.set("location.latitude", query.location.latitude.toString());
+  url.searchParams.set("location.longitude", query.location.longitude.toString());
 
   if(query.requiredQuality)
     url.searchParams.set("requiredQuality", query.requiredQuality);
