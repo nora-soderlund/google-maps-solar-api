@@ -11,11 +11,14 @@ See my developer blog article for an example of using the Solar API data layers 
 https://nora-soderlund.se/articles/integrating-the-new-solar-api-in-google-maps
 
 ## References
-### findClosestBuildingInsights(apiKey: string, query: FindClosestBuildingInsightsParameters): Promise<BuildingInsights>
+
+### Building Insights
+#### `findClosestBuildingInsights(apiKey: string, query: FindClosestBuildingInsightsParameters): Promise<BuildingInsights>`
 See https://developers.google.com/maps/documentation/solar/reference/rest/v1/buildingInsights/findClosest
 
-### getDataLayers(apiKey: string, query: GetDataLayersParameters): Promise<DataLayers>
+### Data Layers
+#### `getDataLayers(apiKey: string, query: GetDataLayersParameters): Promise<DataLayers>`
 See https://developers.google.com/maps/documentation/solar/reference/rest/v1/dataLayers/get
 
-### getTiff(apiKey: string, url: string): Promise<ArrayBuffer>
+#### `getTiff(apiKey: string, url: string): Promise<ArrayBuffer>`
 See https://developers.google.com/maps/documentation/solar/reference/rest/v1/geoTiff/get
