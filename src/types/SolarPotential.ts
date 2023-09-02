@@ -9,7 +9,7 @@ import { SolarPanelConfig } from "./SolarPanelConfig";
  * A number of fields in this are defined in terms of "panels".
  * The fields panelCapacityWatts, panelHeightMeters, and panelWidthMeters describe the parameters of the model of panel used in these calculations.
  */
-export type SolarPotentional = {
+export type SolarPotential = {
   /**
    * Size of the maximum array - that is, the maximum number of panels that can fit on the roof.
   */

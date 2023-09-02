@@ -2,7 +2,7 @@ import { Date } from "./Date";
 import { ImageryQuality } from "./ImageryQuality";
 import { LatLng } from "./LatLng";
 import { LatLngBox } from "./LatLngBox";
-import { SolarPotentional } from "./SolarPotentional";
+import { SolarPotential } from "./SolarPotential";
 
 /**
  * Response message for Solar.FindClosestBuildingInsights.
@@ -57,6 +57,6 @@ export type BuildingInsights = {
   /**
    * Solar potential of the building.
    */
-  solarPotentional: SolarPotentional;
+  solarPotential: SolarPotential;
 };
   

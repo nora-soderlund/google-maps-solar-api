@@ -24,4 +24,4 @@ export * from "./types/SizeAndSunshineStats";
 export * from "./types/SolarPanel";
 export * from "./types/SolarPanelConfig";
 export * from "./types/SolarPanelOrientation";
-export * from "./types/SolarPotentional";
+export * from "./types/SolarPotential";
