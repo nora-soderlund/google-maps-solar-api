@@ -40,10 +40,13 @@ export type GetDataLayersParameters = {
   pixelSizeMeters?: number;
 };
 
-export async function getDataLayers(apiKey: string, query: GetDataLayersParameters): Promise<DataLayers> {
+export async function getDataLayers(apiKeyOrProxyUrl: string | URL, query: GetDataLayersParameters): Promise<DataLayers> {
   const url = new URL("/v1/dataLayers:get", GOOGLE_MAPS_SOLAR_API_BASE);
 
-  url.searchParams.set("key", apiKey);
+  if(typeof apiKeyOrProxyUrl === "string")
+    url.searchParams.set("key", apiKeyOrProxyUrl);
+  else
+    url.host = apiKeyOrProxyUrl.host;
 
   url.searchParams.set("location.latitude", query.location.latitude.toString());
   url.searchParams.set("location.longitude", query.location.longitude.toString());

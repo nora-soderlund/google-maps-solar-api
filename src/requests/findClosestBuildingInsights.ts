@@ -17,10 +17,13 @@ export type FindClosestBuildingInsightsParameters = {
   requiredQuality?: ImageryQuality;
 };
 
-export async function findClosestBuildingInsights(apiKey: string, query: FindClosestBuildingInsightsParameters): Promise<BuildingInsights> {
+export async function findClosestBuildingInsights(apiKeyOrProxyUrl: string | URL, query: FindClosestBuildingInsightsParameters): Promise<BuildingInsights> {
   const url = new URL("/v1/buildingInsights:findClosest", GOOGLE_MAPS_SOLAR_API_BASE);
 
-  url.searchParams.set("key", apiKey);
+  if(typeof apiKeyOrProxyUrl === "string")
+    url.searchParams.set("key", apiKeyOrProxyUrl);
+  else
+    url.host = apiKeyOrProxyUrl.host;
 
   url.searchParams.set("location.latitude", query.location.latitude.toString());
   url.searchParams.set("location.longitude", query.location.longitude.toString());

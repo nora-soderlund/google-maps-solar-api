@@ -13,12 +13,12 @@ https://nora-soderlund.se/articles/integrating-the-new-solar-api-in-google-maps
 ## References
 
 ### Building Insights
-#### `findClosestBuildingInsights(apiKey: string, query: FindClosestBuildingInsightsParameters): Promise<BuildingInsights>`
+#### `findClosestBuildingInsights(apiKeyOrProxyUrl: string | URL, query: FindClosestBuildingInsightsParameters): Promise<BuildingInsights>`
 See https://developers.google.com/maps/documentation/solar/reference/rest/v1/buildingInsights/findClosest
 
 ### Data Layers
-#### `getDataLayers(apiKey: string, query: GetDataLayersParameters): Promise<DataLayers>`
+#### `getDataLayers(apiKeyOrProxyUrl: string | URL, query: GetDataLayersParameters): Promise<DataLayers>`
 See https://developers.google.com/maps/documentation/solar/reference/rest/v1/dataLayers/get
 
-#### `getTiff(apiKey: string, url: string): Promise<ArrayBuffer>`
+#### `getTiff(apiKeyOrProxyUrl: string | URL, url: string): Promise<ArrayBuffer>`
 See https://developers.google.com/maps/documentation/solar/reference/rest/v1/geoTiff/get

@@ -1,6 +1,10 @@
-export async function getTiff(apiKey: string, baseUrl: string | URL): Promise<ArrayBuffer> {
+export async function getTiff(apiKeyOrProxyUrl: string | URL, baseUrl: string | URL): Promise<ArrayBuffer> {
   const url = new URL(baseUrl);
-  url.searchParams.set("key", apiKey);
+  
+  if(typeof apiKeyOrProxyUrl === "string")
+    url.searchParams.set("key", apiKeyOrProxyUrl);
+  else
+    url.host = apiKeyOrProxyUrl.host;
 
   const response = await fetch(url);
   
