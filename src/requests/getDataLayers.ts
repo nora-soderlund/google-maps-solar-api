@@ -2,12 +2,13 @@ import { GOOGLE_MAPS_SOLAR_API_BASE } from "../constants";
 import { DataLayerView } from "../types/DataLayerView";
 import { DataLayers } from "../types/DataLayers";
 import { ImageryQuality } from "../types/ImageryQuality";
+import { LatLng } from "../types/LatLng";
 
 export type GetDataLayersParameters = {
   /**
    * The longitude and latitude for the center of the region to get data for.
    */
-  location: google.maps.LatLngLiteral;
+  location: LatLng;
 
   /**
    * The radius, in meters, defining the region surrounding that centre point for which data should be returned.
@@ -44,8 +45,8 @@ export async function getDataLayers(apiKey: string, query: GetDataLayersParamete
 
   url.searchParams.set("key", apiKey);
 
-  url.searchParams.set("location.latitude", query.location.lat.toString());
-  url.searchParams.set("location.longitude", query.location.lng.toString());
+  url.searchParams.set("location.latitude", query.location.latitude.toString());
+  url.searchParams.set("location.longitude", query.location.longitude.toString());
 
   url.searchParams.set("radiusMeters", query.radiusMeters.toString());
 
