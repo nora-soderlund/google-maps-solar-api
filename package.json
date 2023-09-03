@@ -1,12 +1,16 @@
 {
   "name": "@nora-soderlund/google-maps-solar-api",
   "description": "A TypeScript implementation of Google Maps Solar API endpoints.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "scripts": {
     "build": "npx tsc"
   },
   "devDependencies": {
     "typescript": "^5.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nora-soderlund/google-maps-solar-api"
   }
 }
