@@ -51,11 +51,11 @@ Subsequent request will be sent to e.g. `https://my-solar-api-proxy.com/v1/build
 ### Implementation examples
 See my developer blog article for an example of using the Solar API data layers with a dynamic Google Maps instance:
 
-https://nora-soderlund.se/articles/integrating-the-new-solar-api-in-google-maps
+https://nora-soderlund.com/articles/integrating-the-new-solar-api-in-google-maps
 
 Another example of visualizing potential solar panel placements in dynamic maps:
 
-https://nora-soderlund.se/articles/visualizing-potential-solar-panel-placements-in-google-maps
+https://nora-soderlund.com/articles/visualizing-potential-solar-panel-placements-in-google-maps
 
 ## References
 
