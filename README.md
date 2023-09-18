@@ -60,39 +60,73 @@ https://nora-soderlund.com/articles/visualizing-potential-solar-panel-placements
 ## References
 
 ### Building Insights
-#### `findClosestBuildingInsights(apiKeyOrProxyUrl: string | URL, query: FindClosestBuildingInsightsParameters): Promise<BuildingInsights>`
+#### findClosestBuildingInsights
+```ts
+findClosestBuildingInsights(apiKeyOrProxyUrl: string | URL, query: FindClosestBuildingInsightsParameters): Promise<BuildingInsights>
+```
 Returns a [BuildingInsights](https://github.com/nora-soderlund/google-maps-solar-api/blob/main/src/types/BuildingInsights.ts) object or throws a generic Error if the request failed.
 
 See [buildingInsights.findClosest](https://developers.google.com/maps/documentation/solar/reference/rest/v1/buildingInsights/findClosest) on the Solar API reference.
 
+---
+
 ### Data Layers
-#### `getDataLayers(apiKeyOrProxyUrl: string | URL, query: GetDataLayersParameters): Promise<DataLayers>`
+#### getDataLayers
+```ts
+getDataLayers(apiKeyOrProxyUrl: string | URL, query: GetDataLayersParameters): Promise<DataLayers>
+```
 Returns a [DataLayers](https://github.com/nora-soderlund/google-maps-solar-api/blob/main/src/types/DataLayers.ts) object or throws a generic Error if the request failed.
 
 See [dataLayers.get](https://developers.google.com/maps/documentation/solar/reference/rest/v1/dataLayers/get) on the Solar API reference.
+
+---
 
 #### `getGeoTiff(apiKeyOrProxyUrl: string | URL, url: string): Promise<ArrayBuffer>`
 Returns a raw [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) object of the GeoTIFF file or throws a generic Error if the request failed.
 
 See [geoTiff.get](https://developers.google.com/maps/documentation/solar/reference/rest/v1/geoTiff/get) on the Solar API reference.
 
+---
+
 ### Helpers
-#### `getDataLayersForBounds(bounds: LatLngBox, pixelSizeMeters: number, paddingMeters: number = 0): DataLayerBounds`
+#### getDataLayersForBounds
+```ts
+getDataLayersForBounds(bounds: LatLngBox, pixelSizeMeters: number, paddingMeters: number = 0): DataLayerBounds
+```
 Used for getting a connected area coverage. Does not perform any asynchronous requests. Returns a [DataLayerBounds](#datalayerbounds) object. 
 
-#### `DataLayerBounds`
-##### `dataLayerView: DataLayerView;`
+---
+
+#### DataLayerBounds
+```ts
+dataLayerView: DataLayerView;
+```
 The highest supported data layer view, for radius meters over 175m, the DataLayerView in the request must not include monthly flux or hourly shade.
 
-##### `tiles: LatLng[];`
+##### tiles
+```ts
+tiles: LatLng[];
+```
 The tiles that make up the generated bounds, use with `radiusMetersPerTile`
 
-##### `radiusMetersPerTile: number;`
+##### radiusMetersPerTile
+```ts
+radiusMetersPerTile: number;
+```
 The radius in meters for each tile.
 
-##### `bounds: LatLngBox;`
+##### bounds
+```ts
+bounds: LatLngBox;
+```
 The generated bounds for the new tiles.
 
-##### `horizontalTiles: number;`
-##### `verticalTiles: number;`
+##### horizontalTiles
+```ts
+horizontalTiles: number;
+```
+##### verticalTiles
+```ts
+verticalTiles: number;
+```
 The horizontal and vertical tiles count. 
