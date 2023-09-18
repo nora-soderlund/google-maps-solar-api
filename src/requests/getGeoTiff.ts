@@ -1,4 +1,4 @@
-export async function getTiff(apiKeyOrProxyUrl: string | URL, baseUrl: string | URL): Promise<ArrayBuffer> {
+export async function getGeoTiff(apiKeyOrProxyUrl: string | URL, baseUrl: string | URL): Promise<ArrayBuffer> {
   const url = new URL(baseUrl);
   
   if(typeof apiKeyOrProxyUrl === "string")

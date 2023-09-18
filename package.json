@@ -4,14 +4,21 @@
   "version": "1.0.5",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npx tsc"
+    "build": "npx tsc",
+    "test": "npx jest tests"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.5",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/nora-soderlund/google-maps-solar-api"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "geolib": "^3.3.4"
+  }
 }

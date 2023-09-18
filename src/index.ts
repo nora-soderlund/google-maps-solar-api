@@ -1,8 +1,10 @@
 export * from "./constants";
 
 export * from "./requests/getDataLayers";
-export * from "./requests/getTiff";
+export * from "./requests/getGeoTiff";
 export * from "./requests/findClosestBuildingInsights"
+
+export * from "./helpers/getDataLayersForBounds";
 
 export * from "./types/BuildingInsights";
 export * from "./types/CashPurchaseSavings";

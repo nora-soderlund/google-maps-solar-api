@@ -71,7 +71,28 @@ Returns a [DataLayers](https://github.com/nora-soderlund/google-maps-solar-api/b
 
 See [dataLayers.get](https://developers.google.com/maps/documentation/solar/reference/rest/v1/dataLayers/get) on the Solar API reference.
 
-#### `getTiff(apiKeyOrProxyUrl: string | URL, url: string): Promise<ArrayBuffer>`
+#### `getGeoTiff(apiKeyOrProxyUrl: string | URL, url: string): Promise<ArrayBuffer>`
 Returns a raw [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) object of the GeoTIFF file or throws a generic Error if the request failed.
 
 See [geoTiff.get](https://developers.google.com/maps/documentation/solar/reference/rest/v1/geoTiff/get) on the Solar API reference.
+
+### Helpers
+#### `getDataLayersForBounds(bounds: LatLngBox, pixelSizeMeters: number, paddingMeters: number = 0): DataLayerBounds`
+Used for getting a connected area coverage. Does not perform any asynchronous requests. Returns a [DataLayerBounds](#datalayerbounds) object. 
+
+#### `DataLayerBounds`
+##### `dataLayerView: DataLayerView;`
+The highest supported data layer view, for radius meters over 175m, the DataLayerView in the request must not include monthly flux or hourly shade.
+
+##### `tiles: LatLng[];`
+The tiles that make up the generated bounds, use with `radiusMetersPerTile`
+
+##### `radiusMetersPerTile: number;`
+The radius in meters for each tile.
+
+##### `bounds: LatLngBox;`
+The generated bounds for the new tiles.
+
+##### `horizontalTiles: number;`
+##### `verticalTiles: number;`
+The horizontal and vertical tiles count. 
