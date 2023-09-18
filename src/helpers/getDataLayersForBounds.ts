@@ -21,23 +21,27 @@ export function getDataLayersForBounds(bounds: LatLngBox, pixelSizeMeters: numbe
         longitude: southWest.longitude
     });
 
-    const horizontalTiles = Math.ceil(horizontalDistance / radiusMetersPerTile);
-    const verticalTiles = Math.ceil(verticalDistance / radiusMetersPerTile);
+    const distancePerTile = radiusMetersPerTile * 2;
+
+    const horizontalTiles = Math.ceil(horizontalDistance / distancePerTile);
+    const verticalTiles = Math.ceil(verticalDistance / distancePerTile);
 
     const tiles: LatLng[] = [];
 
     for(let row = 0; row < verticalTiles; row++) {
-        const rowNorthEast = computeDestinationPoint(northEast, radiusMetersPerTile * row, 180);
+        const rowNorthEast = computeDestinationPoint(northEast, distancePerTile * row, 180);
 
         for(let column = 0; column < horizontalTiles; column++) {
             tiles.push(
-                computeDestinationPoint(rowNorthEast, radiusMetersPerTile * column, 270)
+                computeDestinationPoint(rowNorthEast, distancePerTile * column, 270)
             );
         }
     }
 
     return {
         radiusMetersPerTile,
+        distancePerTile,
+
         dataLayerView,
 
         tiles,

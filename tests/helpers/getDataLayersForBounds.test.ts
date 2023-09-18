@@ -73,16 +73,17 @@ describe("getDataLayersForBounds", () => {
         test("Tiles should be the correct count", () => {
             const { tiles } = getDataLayersForBounds(bounds, .25);
 
-            expect(tiles.length).toBe(12);
+            expect(tiles.length).toBe(4);
         });
 
         test("Tiles should be in a grid", () => {
-            const { tiles, verticalTiles, horizontalTiles, radiusMetersPerTile } = getDataLayersForBounds(bounds, .25);
+            const { tiles, verticalTiles, horizontalTiles, radiusMetersPerTile, distancePerTile } = getDataLayersForBounds(bounds, .25);
 
-            expect(tiles.length).toBe(12);
+            expect(tiles.length).toBe(4);
             expect(radiusMetersPerTile).toBe(250);
+            expect(distancePerTile).toBe(500);
 
-            expect.assertions((verticalTiles * horizontalTiles) + horizontalTiles - 2);
+            expect.assertions((verticalTiles * horizontalTiles) + 1);
 
             for(let row = 1; row < verticalTiles; row++)
             for(let column = 1; column < horizontalTiles; column++) {
@@ -93,11 +94,11 @@ describe("getDataLayersForBounds", () => {
 
                 const tile = tiles[index];
 
-                const nextColumnDistance = getDistance(previousColumnTile, tile);
-                expect(nextColumnDistance).toBeCloseTo(radiusMetersPerTile);
+                const nextColumnDistance = getDistance(previousColumnTile, tile, 10);
+                expect(nextColumnDistance).toBeCloseTo(distancePerTile);
 
-                const previousRowDistance = getDistance(previousRowTile, tile);
-                expect(previousRowDistance).toBeCloseTo(radiusMetersPerTile);
+                const previousRowDistance = getDistance(previousRowTile, tile, 10);
+                expect(previousRowDistance).toBeCloseTo(distancePerTile);
             }
         });
     });

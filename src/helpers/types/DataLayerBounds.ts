@@ -4,6 +4,8 @@ import { LatLngBox } from "../../types/LatLngBox";
 
 export type DataLayerBounds = {
     radiusMetersPerTile: number;
+    distancePerTile: number;
+    
     dataLayerView: DataLayerView;
 
     tiles: LatLng[];
